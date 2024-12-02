@@ -20,8 +20,6 @@ class BotWork: # работа бота
                 raise APIException(f'Валюта "{quote}" недоступна. Список доступных валют можно посмотреть в /units')
             if base not in AVAILABLE_UNITS.keys():
                 raise APIException(f'Валюта "{base}" недоступна. Список доступных валют можно посмотреть в /units')
-        if quote==base:
-            raise APIException(f'Конвертируемая и получаемая валюты должны отличаться')
         r = rq.get(f'https://min-api.cryptocompare.com/data/price?fsym={quote}&tsyms={base}')
         sale = float(js.loads(r.content)[base])
         convert_text = f'Стоимость {amount} {quote} составляет {round((amount * sale), 2)} {base}'
