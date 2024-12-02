@@ -1,4 +1,8 @@
-TOKEN='6967280071:AAGMm00Qft6nrQbPuK1DZqN2c5OVEZ8AwGo'
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+TOKEN=os.getenv('TOKEN')
 AVAILABLE_UNITS = {'доллар': 'USD',  # словарь доступных валют
                        'рубль': 'RUB',
                        'йена': 'JPY',
