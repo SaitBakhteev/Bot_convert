@@ -27,7 +27,7 @@ def help(message:telebot.types.Message): # инструкция применен
 
 @bot.message_handler(commands=['units']) # отображение доступных валют в чат боте
 def units(message:telebot.types.Message):
-    text_available_units = 'Доступные валюты:\n'
+    text_available_units = 'А вот и доступные валюты:\n'
     for i, item in enumerate(AVAILABLE_UNITS):
         text_available_units += f'{i + 1}. {item.title()} - {AVAILABLE_UNITS[item]}\n'
     bot.send_message(message.chat.id,text_available_units)
